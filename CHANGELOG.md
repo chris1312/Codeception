@@ -1,8 +1,9 @@
 # Changelog
 
-#### 3.0
-
-* Dropped support for PHP 5.4
+#### 2.2.5
+* [Memcache] Updated `Memcache::seeInMemcached` to check if the key exists alone or with the desired value. By @sergeyklay
+* [Memcache] Added `Memcache::haveInMemcached`. By @sergeyklay
+* [Memcache] Fixed `Memcache::dontSeeInMemcached`. By @sergeyklay
 
 #### 2.2.4
 
