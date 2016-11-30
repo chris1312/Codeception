@@ -1,7 +1,7 @@
 <?php
 namespace Codeception\Module;
 
-// here you can define custom functions for CliGuy 
+// here you can define custom functions for CliGuy
 
 class CliHelper extends \Codeception\Module
 {
@@ -10,7 +10,7 @@ class CliHelper extends \Codeception\Module
         $this->debug('Building actor classes for claypit');
         $this->getModule('Cli')->runShellCommand('php ' . codecept_root_dir() . 'codecept build -c ' . codecept_data_dir() . 'claypit');
     }
-    
+
     public function _before(\Codeception\TestInterface $test)
     {
         codecept_debug('creating dirs');
@@ -24,9 +24,9 @@ class CliHelper extends \Codeception\Module
         chdir(\Codeception\Configuration::projectDir());
     }
 
-    public function executeCommand($command)
+    public function executeCommand($command, $fail = true)
     {
-        $this->getModule('Cli')->runShellCommand('php ' . codecept_root_dir() . 'codecept ' . $command . ' -n');
+        $this->getModule('Cli')->runShellCommand('php '.codecept_root_dir().'codecept '.$command.' -n', $fail);
     }
 
     public function executeFailCommand($command)
