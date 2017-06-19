@@ -45,10 +45,12 @@ class Cli extends CodeceptionModule
         if ($this->output === null) {
             \PHPUnit_Framework_Assert::fail("$command can't be executed");
         }
+
+        $this->debug(preg_replace('~s/\e\[\d+(?>(;\d+)*)m//g~', '', $this->output));
+
         if ($resultCode !== 0 && $failNonZero) {
             \PHPUnit_Framework_Assert::fail("Result code was $resultCode.\n\n" . $this->output);
         }
-        $this->debug(preg_replace('~s/\e\[\d+(?>(;\d+)*)m//g~', '', $this->output));
     }
 
     /**
